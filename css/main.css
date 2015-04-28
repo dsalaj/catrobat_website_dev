@@ -1,0 +1,530 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  padding-bottom: 60px;
+}
+
+h1 a {
+  text-decoration: none;
+  color: inherit;
+}
+h1 a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Custom container */
+.container {
+  margin: 0 auto;
+}
+.container > hr {
+  margin: 60px 0;
+}
+
+@media all and (min-width: 1000px) {
+  body {
+    padding-top: 55px;
+  }
+  .navbar {
+    z-index: 2;
+    position: fixed;
+    top: 0px;
+    border-bottom: 3px solid #f2f2f2;
+  }
+  .subc {
+    z-index: 2;
+    position: fixed;
+    top: 55px;
+  }  
+  .container {
+    max-width: 1000px;
+  }
+  .navi {
+    flex-direction: row;
+  }
+}
+@media all and (max-width: 999px) and (min-width: 100px) {
+  body {
+    padding-top: 0px;
+  }
+  .subnav {
+    visibility: collapse;
+  }  
+  .navbar {
+    position: relative;
+  }
+  .navi {
+    flex-direction: column;
+  }
+}
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+}
+.jumbotron h1 {
+  font-size: 100px;
+  line-height: 1;
+}
+.jumbotron h2 {
+  font-size: 70px;
+  line-height: 1;
+  margin-bottom: 1em;
+}
+.jumbotron .lead {
+  font-size: 24px;
+  line-height: 1.25;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 60px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+.navbar {
+  background-color: #fff;
+  width: 100%;
+}
+
+.navi {
+  margin: 0px;
+  list-style: outside none none;
+  padding: 0px;
+  display: flex;
+}
+
+.navi > li {
+  order: 1;
+  flex-grow: 1;
+}
+
+.navbar .navi > li > a {
+  display: block;
+  height: 35px;
+  overflow: visible;
+  text-shadow: 0px 1px 0px #FFF;
+  padding: 10px 15px;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 900;
+  color: #555;
+}
+.navbar .navi > .active > a, 
+.navbar .navi > .active > a:hover, 
+.navi > li > a > .active > a:focus{
+  color: #555;
+  border-left: medium none;
+  text-decoration: none;
+  background-color: #f2f2f2;
+}
+
+/* Customize the navbar links to be fill the entire space of the .navbar 
+.navbar .navbar-inner {
+  padding: 0;
+}
+.navbar .nav {
+  margin: 0;
+  display: table;
+  width: 100%;
+}
+.navbar .nav li {
+  display: table-cell;
+  width: 1%;
+  float: none;
+}
+.navbar .nav li a {
+  font-weight: bold;
+  text-align: center;
+  border-left: 1px solid rgba(255,255,255,.75);
+  border-right: 1px solid rgba(0,0,0,.1);
+}
+.navbar .nav li:first-child a {
+  border-left: 0;
+  border-radius: 3px 0 0 3px;
+}
+.navbar .nav li:last-child a {
+  border-right: 0;
+  border-radius: 0 3px 3px 0;
+}
+*/
+
+/* Other */
+
+.catrob-logo {
+  position: relative;
+  top: -6px;
+  height: 35px;
+  width: 55px;
+}
+
+.fake-logo {
+  visibility: collapse;
+  position: relative;
+  top: -6px;
+  height: 35px;
+  width: 1px;
+}
+
+.pc-logo {
+  position: relative;
+  top: -3px;
+  height: 33px;
+  width: 33px;
+}
+
+.pc {
+  position: relative;
+  top: -1px;
+}
+
+.pc-banner {
+  background: url(../img/pc_banner.png) no-repeat;
+  background-size: cover;
+  background-opacity:0.5;
+  height: 500px;
+}
+
+/*
+@-webkit-keyframes slide { 100% { left: 0; }}
+@keyframes slide { 100% { left: 0; }}
+*/
+  @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+  @-webkit-keyframes slide { 100% { bottom: -10em; }}
+  @-moz-keyframes slide { 100% { bottom: -10em; }}
+  @keyframes slide { 100% { bottom: -10em; }}
+
+#pc-splash {
+  width: 384px;
+  position: relative;
+  bottom: -30em;
+
+  opacity:0;  /* make things invisible upon start */
+  -webkit-animation:fadeIn ease-in 1, slide 0.5s forwards;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation:fadeIn ease-in 1, slide 0.5s forwards;
+  animation:fadeIn ease-in 1, slide 0.5s forwards;
+
+  -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode:forwards;
+  animation-fill-mode:forwards;
+
+  -webkit-animation-duration:2s;
+  -moz-animation-duration:2s;
+  animation-duration:2s; 
+
+  -webkit-animation-delay: 7s;
+  -moz-animation-delay: 0.7s;
+  animation-delay: 0.7s;  
+}
+
+#orange {
+  color: #ff7700;
+}
+
+#cyan {
+  color: #17a5b8;
+}
+
+.footer {
+  margin-top: 2em;
+  text-align: center;
+}
+
+.block {
+  border-bottom: 1px solid #eee;
+  padding: 60px 0;
+  width: 100%;
+}
+.block-pub {
+  padding: 40px 0;
+  width: 100%;
+}
+.block-pub-small {
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+.block-inv {
+  background: #17a5b8;
+  border-bottom: 1px solid #eee;
+  padding: 60px 0;
+  width: 100%;
+  color: #fff;
+}
+
+.block-lego {
+  background: #555;
+  border-bottom: 1px solid #eee;
+  padding: 60px 0;
+  width: 100%;
+  color: #fff;
+}
+
+@keyframes animatedBackground {
+  from { background-position: 0 0; }
+  to { background-position: -1350px 0; }
+}
+
+.block-demo {
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
+  animation: animatedBackground 20s linear infinite;
+
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  height: 550px;
+  color: #fff;
+  background: url("../demo/img/sky.jpg");
+  background-size: cover;
+}
+
+.nav li {
+  height: 55px;
+}
+.nav li a {
+  height: 35px;
+  overflow: visible;
+}
+
+.navbar-inner {
+  height: 55px;
+}
+
+.playstore {
+  height: 60px;
+  width: 172px;
+  background: url(../img/playstore.png) no-repeat;
+  display: inline-block;
+}
+.appstore {
+  height: 51px;
+  width: 172px;
+  background: url(../img/apple.png) no-repeat;
+  display: inline-block;
+}
+.winstore {
+  height: 44px;
+  width: 172px;
+  background: url(../img/winstore.png) no-repeat;
+  display: inline-block;
+}
+
+/* Social Icons */
+ul.social-icons {
+  margin: 0px;
+  position: relative;
+}
+
+ul.social-icons li{
+  display:inline;
+}
+ul.social-icons li a span{
+  height: 65px;
+  width: 70px;
+  background: url(../img/img-sprite.png) no-repeat;
+  display: inline-block;
+}
+/*ul.social-icons li a span:hover{
+  opacity:0.6;
+}*/
+ul.social-icons2 {
+  margin: 0px;
+  position: relative;
+  right: 0px;
+}
+ul.social-icons2 li{
+  display:inline;
+}
+ul.social-icons2 li a span{
+  height: 35px;
+  width: 35px;
+  background: url(../img/img-sprite.png) no-repeat;
+  display: inline-block;
+}
+ul.social-icons2 li.facebook a span{
+  background-position:0px 0px;
+}
+ul.social-icons2 li.twitter a span{
+  background-position:-37px 0px;
+}
+ul.social-icons2 li.gmail a span{
+  background-position:-71px 0px;
+}
+
+
+ul.social-icons li.facebook a span{
+  background-position:0px -85px;
+}
+ul.social-icons li.facebook a span:hover{
+  background-position:0px -150px;
+}
+ul.social-icons li.twitter a span{
+  background-position:-71px -85px;
+}
+ul.social-icons li.twitter a span:hover{
+  background-position:-71px -150px;
+}
+ul.social-icons li.gmail a span{
+  background-position:-142px -85px;
+}
+ul.social-icons li.gmail a span:hover{
+  background-position:-142px -150px;
+}
+ul.social-icons li.linked a span{
+  background-position:-212px -85px;
+}
+ul.social-icons li.linked a span:hover{
+  background-position:-212px -150px;
+}
+
+.news h1 {
+  margin-bottom: 0;
+}
+.news img {
+  margin: 0 0 0 6%; float: right;
+  width: 30%;
+}
+.news p {
+  font-size: 1.4em;
+}
+.news div {
+  margin-bottom: 1em;
+}
+
+.subc {
+  background-color: #f2f2f2;
+  width: 100%;
+}
+.subnav {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.subnav li {
+  padding: 0.4em 3.6em;
+}
+.subnav a {
+  display: block;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  font-weight: 900;
+  color: #555;
+}
+.subnav > .navi > .active > a{
+  color: #f70;
+  -webkit-transition: all 0.5s;
+  -moz-transition:    all 0.5s;
+  -o-transition:      all 0.5s;  
+}
+
+/* Submenu under main navigation tabs 
+.subnav ul
+{
+  width: 100%;
+  margin: 0.5em 0 0 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+}
+.subnav ul li { display: inline; }
+.subnav ul li a
+{
+  text-decoration: none;
+  padding: .2em 1em;
+  color: #fff;
+  background-color: #17a5b8;
+  border-radius: 25px;
+}
+.subnav ul li a:hover
+{
+  color: #fff;
+  background-color: #f70;
+}
+*/
+.pub {
+  text-align: left;
+}
+.pub .container{
+  width: 80%;
+  float: left;
+  /*width: 70%;*/
+}
+.pub h1 {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.2em;
+}
+.pub h2 {
+  font-size: 1.6em;
+}
+.pub img {
+  width: auto;
+}
+.pub .btn {
+  float: right;
+}
+
+.down {
+  display: inline;
+  margin-right: 3em;
+}
+.down a {
+  color: #F70;
+  font-weight: 900;
+}
+
+.down a::before {
+  content: "> ";
+}
+
+.down  a:hover {
+  color: #F70;
+  text-decoration: none;
+}
+
+.title {
+  font-weight: 900;
+  display: inline;
+}
+.title a {
+  color: #17A5B8;
+}
+.title a:hover {
+  color: #F70;
+  text-decoration: none;
+}
+
+.authors {
+  display: inline;
+}
+.authors::before {
+  font-weight: bold;
+}
+.date {
+  display: inline;
+}
+.date::before {
+  font-weight: bold;
+}
+
+.btn-cat {
+  color: #FFF;
+  background-color: #F70;
+  border-radius: 0px;
+  display: inline-block;
+}
+.btn-cat:hover{
+  color: #FFF;
+  text-decoration: none;
+  background-color: #F70;
+}

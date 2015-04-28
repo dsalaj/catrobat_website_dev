@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery UI Droppable - Default functionality</title>
+<link rel="stylesheet" href="jquery/jquery-ui.css">
+<link rel="stylesheet" href="animate.css">
+<script src="jquery/jquery.js"></script>
+<script src="jquery/jquery-ui.js"></script>
+<style>
+body {
+  height: 550px;
+  overflow: hidden;
+}
+#draggable { 
+  width: 380px; 
+  height: 94px; 
+  margin: 10px 10px 10px 0; 
+  background: url("img/block.png"); 
+  display: inline-block;
+  position: relative;
+  left: 15%;
+  top: 15em;
+  z-index: 1;
+}
+
+#block { 
+	width: 100%; 
+	height: 550px; 
+	display: flex; 
+	flex-direction: row; 
+	background-size: cover;
+  /*background: url("img/sky.jpg"); background-repeat: no-repeat; */
+}
+
+#droppable2-inner { width: 380px; height: 94px; margin: 369px 20px;}
+#device {
+  display: inline-block;
+  background: url("img/Nexus5.png");
+  width: 420px;
+  height: 604px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 10%;
+}
+#device img {
+  position: fixed;
+  opacity: 1;
+  animation-name: hinting-nexus;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 0.7s;
+  animation-direction: alternate;
+  animation-play-state: paused;
+
+  -webkit-animation-name: hinting-nexus;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 0.7s;  
+  -webkit-animation-direction: alternate;
+  -webkit-animation-play-state: paused;  
+}
+@keyframes hinting-nexus {
+  0% {opacity:0;}
+  70% {opacity:1;}
+  100% {opacity:1;}
+}
+@-webkit-keyframes hinting-nexus {
+  0% {opacity:0;}
+  70% {opacity:1;}
+  100% {opacity:1;}
+}
+
+#cage1 {
+  flex-grow: 1;
+}
+#cage2 {
+  flex-grow: 2;
+}
+ 
+#bird {
+    width: 150px;
+    height: 150px;
+    background:url("img/b1.png");
+    position: relative;
+    left: 30%;
+    /* Chrome, Safari, Opera */
+    -webkit-animation-name: fly;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-play-state: paused;
+    /* Standard syntax */
+    animation-name: fly;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: paused;
+}
+/* Chrome, Safari, Opera */
+@-webkit-keyframes fly {
+    0%   {top:150px;}
+    100%  {top:300px;}
+}
+/* Standard syntax */
+@keyframes fly {
+    0%   {top:150px;}
+    100%  {top:300px;}
+}
+/*
+@keyframes animatedBackground {
+	from { background-position: 0 0; }
+	to { background-position: -1350px 0; }
+}
+
+.animate-area { 
+	background-image: url("img/sky.jpg");
+	background-position: 0px 0px;
+	background-repeat: repeat-x;
+
+	animation: animatedBackground 5s linear infinite;
+}
+*/
+
+.ui-effects-transfer {
+  border: 5px dotted white;
+}
+
+@keyframes animatedBackground {
+  from { background-position: 0 0; }
+  to { background-position: -1350px 0; }
+}
+@-webkit-keyframes animatedBackground {
+  from { background-position: 0 0; }
+  to { background-position: -1350px 0; }
+}
+
+#block {
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
+  -webkit-animation: animatedBackground 20s linear infinite;
+  -webkit-animation-play-state: paused;
+  animation: animatedBackground 20s linear infinite;
+  animation-play-state: paused;
+  overflow: hidden;
+  width: 100%;
+  height: 550px;
+  background: url("../demo/img/clouds.png");
+}
+
+#hint {
+  width: 30%;
+  position: fixed;
+  top: 30%;
+  left: 28%;
+  z-index: 0;
+  opacity: 0;
+  transition: all 1s ease-in-out;  
+}
+
+</style>
+<script>
+var hint;
+var hl;
+var h = 0;
+hint = setInterval(function(){
+    if(h == 0) {
+      $('#draggable').addClass('animated swing');
+      h = 1;
+    } else {
+      $('#draggable').removeClass('animated swing');
+      h = 0;
+    } 
+}, 1500)
+
+var flap;
+$(function() {
+$( "#draggable" ).draggable({
+  snap: "#droppable2-inner",
+  snapMode: "inner",
+  start: function( event, ui ) {
+	$('#draggable').removeClass('animated swing');
+	  clearInterval(hint);
+    clearInterval(flap);
+    $("#bird").css("animation-play-state", "paused");
+    $("#bird").css("-webkit-animation-play-state", "paused");
+    $("#block").css("animation-play-state", "paused");
+    $("#block").css("-webkit-animation-play-state", "paused");
+    $("img").css("animation-play-state", "running");
+    $("img").css("-webkit-animation-play-state", "running");
+    $("#hint").css("opacity", "1"); 
+    //$( "#draggable" ).effect( "shake" );
+    //$( "#draggable" ).effect( "transfer", { to: $( "#droppable2-inner" ) }, 1400 );   
+    //$( "#droppable2-inner" ).effect( "highlight", {easing: "linear", color:"#fff"}, 1800 ); 
+    //hl = setInterval(function(){
+    //  $( "#droppable2-inner" ).effect( "highlight", {easing: "linear", color:"#fff"}, 1800 );   
+    //}, 2800)    
+    //$( "#droppable2-inner" ).effect( "highlight", 800 );   
+  }
+});
+$( "#block, #droppable2-inner" ).droppable({
+greedy: true,
+//activeClass: "ui-state-hover",
+//hoverClass: "ui-state-active",
+drop: function( event, ui ) {
+
+clearInterval(hl);
+if (this.id == 'droppable2-inner') {
+  
+  $("#bird").css("animation-play-state", "running");
+  $("#bird").css("-webkit-animation-play-state", "running");
+  $("#block").css("animation-play-state", "running");
+  $("#block").css("-webkit-animation-play-state", "running");  
+ 
+  var alt = 0;
+  flap = setInterval(function(){
+    if(alt == 0) {
+      $("#bird").css("background", "url('img/b2.png')");
+      alt = 1;
+    } else {
+      $("#bird").css("background", "url('img/b1.png')");
+      alt = 0;
+    }    
+  }, 700)
+} else {
+	$('#draggable').addClass('animated swing');
+  $("img").css("animation-play-state", "paused");
+  $("img").css("-webkit-animation-play-state", "paused");  
+  $("img").css("opacity", "1"); 
+}
+$("#hint").css("opacity", "0"); 
+
+}
+});
+});
+</script>
+</head>
+<body>
+
+<div id="block" class="animate-area">
+
+
+  <div id="cage2" class="">
+    <div id="bird" class="">
+      <div id="flap"></div>
+    </div>
+    <div id="draggable" class="">
+    </div>    
+  </div>
+
+  <div id="cage1" class="">
+    <div id="device" class="">
+      <img src="img/Nexus5-b.png"/>
+      <div id="droppable2-inner" class="">
+      </div>
+    </div>
+  </div>
+  <img id="hint" src="img/arrow.png"/>
+
+</div>
+
+</body>
+</html>
