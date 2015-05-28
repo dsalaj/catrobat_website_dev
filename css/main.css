@@ -458,6 +458,7 @@ ul.social-icons li.linked a span:hover{
 .pub .container{
   width: 80%;
   float: left;
+  margin-bottom: 2em;
   /*width: 70%;*/
 }
 .pub h1 {
@@ -485,6 +486,22 @@ ul.social-icons li.linked a span:hover{
 
 .down a::before {
   content: "> ";
+}
+
+.btn-s {
+  display: inline-block;
+  padding: 4px 12px;
+  margin-bottom: 0px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #fff;
+  background-color: #555;
+}
+
+.btn-s:hover, .btn-s:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #f70;    
 }
 
 .down  a:hover {
@@ -527,4 +544,12 @@ ul.social-icons li.linked a span:hover{
   color: #FFF;
   text-decoration: none;
   background-color: #F70;
+}
+
+.pp {
+  background: url('../img/pp_banner2.png') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
